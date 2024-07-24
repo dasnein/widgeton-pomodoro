@@ -24,6 +24,12 @@ enum TimerLogoId {
   Colorless = 'timer-logo-colorless',
 }
 
+enum AudioId {
+  LongBreak = 'audio-long-break',
+  ShortBreak = 'audio-short-break',
+  Work = 'audio-work',
+}
+
 export const EL_BUTTONS = {
   START: document.getElementById(ButtonId.Start),
   STOP: document.getElementById(ButtonId.Stop),
@@ -41,6 +47,12 @@ export const EL_TEXTS = {
 export const EL_TIMER = {
   LOGO_COLORED: document.getElementById(TimerLogoId.Colored),
   LOGO_COLORLESS: document.getElementById(TimerLogoId.Colorless),
+}
+
+export const EL_AUDIO = {
+  LONG_BREAK: document.getElementById(AudioId.LongBreak),
+  SHORT_BREAK: document.getElementById(AudioId.ShortBreak),
+  WORK: document.getElementById(AudioId.Work),
 }
 
 export const DEFAULT_STORE_SETTINGS: StoreSettings = {
