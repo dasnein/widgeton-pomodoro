@@ -9,6 +9,7 @@ enum ButtonId {
   Start = 'button-start',
   Stop = 'button-stop',
   Settings = 'button-settings',
+  Reset = 'button-reset',
 }
 
 enum TextId {
@@ -27,6 +28,7 @@ export const EL_BUTTONS = {
   START: document.getElementById(ButtonId.Start),
   STOP: document.getElementById(ButtonId.Stop),
   SETTINGS: document.getElementById(ButtonId.Settings),
+  RESET: document.getElementById(ButtonId.Reset),
 }
 
 export const EL_TEXTS = {
@@ -58,6 +60,8 @@ export const DEFAULT_STORE_STATE: StoreState = {
 export enum BusEvents {
   Start = 'start',
   Stop = 'stop',
+  NextRound = 'next-round',
+  Reset = 'reset',
 }
 
 export enum ElementModifier {

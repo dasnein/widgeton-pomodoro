@@ -108,7 +108,7 @@ body {
       background-position: top center;
       background-size: cover;
       background-repeat: no-repeat;
-      transition: height 1s ease-in-out;
+      transition: height 0.5s ease-in-out;
 
       &.colored {
         background-image: url('../assets/images/yandex_logo_en.png');

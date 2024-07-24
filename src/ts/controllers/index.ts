@@ -6,6 +6,8 @@ import { store } from "../store";
 export function initControllers() {
   eventBus.on(BusEvents.Start, onStartButton);
   eventBus.on(BusEvents.Stop, onStopButton);
+  eventBus.on(BusEvents.NextRound, onNextRound);
+  eventBus.on(BusEvents.Reset, onResetButton);
 }
 
 function onStartButton() {
@@ -15,5 +17,22 @@ function onStartButton() {
 
 function onStopButton() {
   store.stopTimer();
+  render();
+}
+
+function onNextRound() {
+  if (store.state.round >= store.settings.rounds && store.state.breakRunning) {
+    return store.restartTimer();
+  }
+
+  if (store.state.breakRunning) {
+    store.startNextRound();
+  } else {
+    store.startBreak();
+  }
+}
+
+function onResetButton() {
+  store.resetTimer();
   render();
 }

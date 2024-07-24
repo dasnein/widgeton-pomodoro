@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Widget Pomodoro</title>
     <link rel="stylesheet" href="./styles/main.scss" />
+    <link rel="icon" type="image/png" href="./assets/images/yandex_logo_en.png" />
   </head>
   <body>
     <div class="container">
       <div class="header">
         <div class="header-left">
           <h4><span id="header-round-current">1</span> / <span id="header-rounds-total">4</span></h4>
-          <a href="javascript;">сбросить</a>
+          <a href="#" onclick="return false;" id="button-reset">сбросить</a>
         </div>
         <div class="controls">
           <button class="control" id="button-start" title="start">▶️</button>

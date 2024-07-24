@@ -1,4 +1,5 @@
-import { DEFAULT_STORE_SETTINGS, DEFAULT_STORE_STATE } from "../consts";
+import { BusEvents, DEFAULT_STORE_SETTINGS, DEFAULT_STORE_STATE } from "../consts";
+import { eventBus } from "../eventBus";
 import { StoreSettings, StoreState } from "../types";
 import storage from "../utils/storage";
 
@@ -7,6 +8,10 @@ class Store {
   private _settings: StoreSettings;
 
   constructor() {
+    this._init();
+  }
+
+  private _init() {
     this._loadSettings();
     this._loadState();
   }
@@ -17,8 +22,6 @@ class Store {
       ...DEFAULT_STORE_SETTINGS,
       ...savedSettings,
     }
-
-    console.log(this._settings);
   }
 
   private _loadState() {
@@ -32,6 +35,9 @@ class Store {
 
   startTimer() {
     this._state.running = true;
+
+    this.state.round = this.state.round || 1;
+
     this.reduceTimer();
   }
 
@@ -40,9 +46,37 @@ class Store {
   }
 
   reduceTimer() {
-    this._state.timeLeft = this._state.timeLeft - 1000;
+    this.state.round > 0 && (this._state.timeLeft = this._state.timeLeft - 1000);
+
+    if (this._state.timeLeft < 0) {
+      return eventBus.dispatch(BusEvents.NextRound);
+    }
 
     this._state.running && setTimeout(this.reduceTimer.bind(this), 1000);
+  }
+
+  resetTimer() {
+    this._init();
+  }
+
+  restartTimer() {
+    this._loadState();
+    this.startTimer();
+  }
+
+  startBreak() {
+    this._state.breakRunning = true;
+    this._state.timeLeft = this.state.round === this.settings.rounds
+      ? this.settings.longBreakPeriod
+      : this.settings.shortBreakPeriod;
+    this.reduceTimer();
+  }
+
+  startNextRound() {
+    this._state.breakRunning = false;
+    this._state.round += 1;
+    this._state.timeLeft = this.settings.focusPeriod;
+    this.reduceTimer();
   }
 
   get settings() {
