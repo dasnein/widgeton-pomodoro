@@ -31,12 +31,6 @@ body {
 .container {
   --unit: #{$unit};
 
-  @media only screen and (max-width: $card_small_size) {
-    & {
-      --unit: #{$unit_small};
-    }
-  }
-
   width: 100vw;
   height: 100vh;
   max-width: $card_max_size;
@@ -149,5 +143,11 @@ body {
     h4 {
       font-size: calc(var(--unit) * 6);
     }
+  }
+}
+
+@media only screen and (max-width: $card_small_size) {
+  .container {
+    --unit: #{$unit_small};
   }
 }
