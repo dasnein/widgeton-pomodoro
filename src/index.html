@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Widget Pomodoro</title>
-</head>
-<body>
-  <h1>Widget pomodoro</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Widget Pomodoro</title>
+    <link rel="stylesheet" href="./styles/main.scss" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header-left">
+          <h4><span id="header-round-current">1</span> / <span id="header-rounds-total">4</span></h4>
+          <a href="javascript;">сбросить</a>
+        </div>
+        <div class="controls">
+          <button class="control" id="button-start" title="start">▶️</button>
+          <button class="control" id="button-stop" title="stop">⏹</button>
+          <!-- <button class="control" id="button-settings" title="settings">⚙️</button> -->
+        </div>
+      </div>
+
+      <div class="timer">
+        <div class="timer-logo colorless" id="timer-logo-colorless"></div>
+        <div class="timer-logo colored" id="timer-logo-colored"></div>
+      </div>
+
+      <div class="footer">
+        <h4 class="time-remains-header">
+          <span id="time-operation">Работаем</span> ещё <span id="time-remains">00:00</span>
+        </h4>
+      </div>
+    </div>
+
+    <script type="module" src="./ts/main.ts"></script>
+  </body>
 </html>

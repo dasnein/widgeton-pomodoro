@@ -1,0 +1,138 @@
+@import 'modifiers';
+
+$card_max_size: 384px; // [180, 384]
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'YS Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.9);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #ddd;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  max-width: $card_max_size;
+  max-height: $card_max_size;
+  background-color: #fff;
+  padding: 12px 16px;
+  position: relative;
+
+  &:hover {
+    .controls {
+      opacity: 1;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+
+    &-left {
+      color: #fff;
+      text-align: center;
+
+      h4 {
+        font-size: 24px;
+      }
+
+      a {
+        color: #fff;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      transition: opacity 0.2s linear;
+
+      .control {
+        appearance: none;
+        background-color: #fff;
+        // background-color: rgba(255, 255, 0, 0.8);
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        padding: 8px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        opacity: 0.7;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .timer {
+    &-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background-position: top center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: height 1s ease-in-out;
+
+      &.colored {
+        background-image: url('../assets/images/yandex_logo_en.png');
+        z-index: 2;
+      }
+
+      &.colorless {
+        background-image: url('../assets/images/yandex_logo_en_grey.png');
+      }
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 3;
+    color: #fff;
+    text-shadow: 0 0 1px #000;
+
+    h4 {
+      font-size: 24px;
+    }
+  }
+}
