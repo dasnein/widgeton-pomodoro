@@ -1,6 +1,10 @@
 @import 'modifiers';
 
+$card_small_size: 182px;
 $card_max_size: 384px; // [180, 384]
+
+$unit: 4px;
+$unit_small: 2px;
 
 * {
   padding: 0;
@@ -25,12 +29,20 @@ body {
 }
 
 .container {
+  --unit: #{$unit};
+
+  @media only screen and (max-width: $card_small_size) {
+    & {
+      --unit: #{$unit_small};
+    }
+  }
+
   width: 100vw;
   height: 100vh;
   max-width: $card_max_size;
   max-height: $card_max_size;
   background-color: #fff;
-  padding: 12px 16px;
+  padding: calc(var(--unit) * 3) calc(var(--unit) * 4);
   position: relative;
   border-radius: 24px;
   overflow: hidden;
@@ -51,18 +63,19 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    padding: 16px;
+    padding: calc(var(--unit) * 4);
 
     &-left {
       color: #fff;
       text-align: center;
 
       h4 {
-        font-size: 24px;
+        font-size: calc(var(--unit) * 6);
       }
 
       a {
         color: #fff;
+        font-size: calc(var(--unit) * 4);
 
         &:hover {
           text-decoration: none;
@@ -74,7 +87,7 @@ body {
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 16px;
+      gap: calc(var(--unit) * 4);
       transition: opacity 0.2s linear;
 
       .control {
@@ -83,14 +96,14 @@ body {
         // background-color: rgba(255, 255, 0, 0.8);
         border: none;
         cursor: pointer;
-        font-size: 24px;
-        padding: 8px;
+        font-size: calc(var(--unit) * 6);
+        // padding: calc(var(--unit) * 2);
         border-radius: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 48px;
-        height: 48px;
+        width: calc(var(--unit) * 12);
+        height: calc(var(--unit) * 12);
         opacity: 0.7;
 
         &:hover {
@@ -125,7 +138,7 @@ body {
 
   .footer {
     position: absolute;
-    bottom: 32px;
+    bottom: calc(var(--unit) * 8);
     left: 0;
     right: 0;
     text-align: center;
@@ -134,7 +147,7 @@ body {
     text-shadow: 0 0 1px #000;
 
     h4 {
-      font-size: 24px;
+      font-size: calc(var(--unit) * 6);
     }
   }
 }
