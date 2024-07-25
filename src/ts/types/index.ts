@@ -1,8 +1,11 @@
+import { TimerImage } from "../consts";
+
 export type StoreSettings = {
   focusPeriod: number;
   shortBreakPeriod: number;
   longBreakPeriod: number;
   rounds: number;
+  timerImage: TimerImage;
 }
 
 export type StoreState = {

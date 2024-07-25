@@ -1,4 +1,4 @@
-import { EL_SETTINGS_SLIDERS, EL_SETTINGS_VALUES, EL_TIMER, EL_VIEWS } from "../consts";
+import { EL_SETTINGS_SLIDERS, EL_SETTINGS_VALUES, EL_TIMER, EL_VIEWS, SettingsSliderId } from "../consts";
 import { store } from "../store";
 import { getFormattedTime, setHTML, setValue } from "../utils";
 
@@ -12,7 +12,7 @@ export function renderSettings() {
   } else {
     EL_VIEWS.SETTINGS?.classList.remove(VISIBLE_CLASS);
   }
-  
+
   setHTML(EL_SETTINGS_VALUES.ROUNDS, store.settings.rounds);
   setValue(EL_SETTINGS_SLIDERS.ROUNDS, store.settings.rounds);
 
@@ -24,4 +24,7 @@ export function renderSettings() {
 
   setHTML(EL_SETTINGS_VALUES.FOCUS, getFormattedTime(store.settings.focusPeriod));
   setValue(EL_SETTINGS_SLIDERS.FOCUS, store.settings.focusPeriod / 60 / 1000);
+
+  const timerImageRadio = document.querySelector(`[name="${SettingsSliderId.TimerImage}"][value="${store.settings.timerImage}"]`);
+  timerImageRadio && 'checked' in timerImageRadio && (timerImageRadio.checked = true);
 }

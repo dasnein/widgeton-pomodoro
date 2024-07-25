@@ -1,4 +1,4 @@
-import { BusEvents, EL_AUDIO } from "../consts";
+import { BusEvents } from "../consts";
 import { eventBus } from "../eventBus";
 import { render } from "../renderer";
 import { renderSettings } from "../renderer/settings";
@@ -67,5 +67,5 @@ function onSettingsUpdate() {
   store.resetTimer();
   store.toggleSettings(showSettings);
 
-  renderSettings();
+  render();
 }

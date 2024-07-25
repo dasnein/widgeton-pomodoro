@@ -1,4 +1,4 @@
-import { BusEvents, EL_SETTINGS_SLIDERS } from "../consts";
+import { BusEvents, EL_SETTINGS_SLIDERS, SettingsSliderId, TimerImage } from "../consts";
 import { eventBus } from "../eventBus";
 import { store } from "../store";
 
@@ -38,9 +38,23 @@ function initSettingsSliderFocus() {
   })
 }
 
+function initSettingsTimerImage() {
+  const timerImageRadios = document.querySelectorAll(`[name="${SettingsSliderId.TimerImage}"]`);
+
+  timerImageRadios.forEach(el => {
+    el.addEventListener('change', (e: any) => {
+      const timerImage = e.target.value as TimerImage;
+
+      store.updateSettings({ timerImage });
+      eventBus.dispatch(BusEvents.SettingsUpdated);
+    })
+  })
+}
+
 export function initSettings() {
   initSettingsSliderRounds();
   initSettingsSliderShortBreak();
   initSettingsSliderLongBreak();
   initSettingsSliderFocus();
+  initSettingsTimerImage();
 }

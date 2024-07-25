@@ -84,11 +84,9 @@ body {
       .control {
         appearance: none;
         background-color: #fff;
-        // background-color: rgba(255, 255, 0, 0.8);
         border: none;
         cursor: pointer;
         font-size: calc(var(--unit) * 6);
-        // padding: calc(var(--unit) * 2);
         border-radius: 100%;
         display: flex;
         align-items: center;
@@ -105,7 +103,19 @@ body {
   }
 
   .timer {
-    &-logo {
+    &[data-timer-image='ru'] {
+      .timer-logo {
+        &.colored {
+          background-image: url('../assets/images/yandex_logo_ru.png');
+        }
+
+        &.colorless {
+          background-image: url('../assets/images/yandex_logo_ru_grey.png');
+        }
+      }
+    }
+
+    .timer-logo {
       position: absolute;
       top: 0;
       left: 0;

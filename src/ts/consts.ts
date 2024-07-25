@@ -43,11 +43,17 @@ enum SettingsValueId {
   ShortBreakPeriod = 'settings-value-short-break-period',
 }
 
-enum SettingsSliderId {
+export enum SettingsSliderId {
   FocusPeriod = 'settings-slider-focus-period',
   LongBreakPeriod = 'settings-slider-long-break-period',
   Rounds = 'settings-slider-rounds',
   ShortBreakPeriod = 'settings-slider-short-break-period',
+  TimerImage = 'timer-image',
+}
+
+export enum TimerImage {
+  Ru = 'ru',
+  En = 'en',
 }
 
 export const EL_BUTTONS = {
@@ -100,6 +106,7 @@ export const DEFAULT_STORE_SETTINGS: StoreSettings = {
   shortBreakPeriod: 5 * 60 * 1000,
   longBreakPeriod: 15 * 60 * 1000,
   rounds: 4,
+  timerImage: TimerImage.En,
 };
 
 export const DEFAULT_STORE_STATE: StoreState = {
