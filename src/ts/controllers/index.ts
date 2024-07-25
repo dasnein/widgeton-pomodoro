@@ -60,6 +60,12 @@ function onCloseSettings() {
 }
 
 function onSettingsUpdate() {
+  const { showSettings } = store.state
+
   storage.saveSettings(store.settings);
+
+  store.resetTimer();
+  store.toggleSettings(showSettings);
+
   renderSettings();
 }

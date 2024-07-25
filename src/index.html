@@ -29,27 +29,22 @@
       <div class="settings" id="view-settings">
         <a href="#" onclick="return false;" id="button-settings-close" class="close">×</a>
         <div class="sliders">
-          <!-- <div class="slider-container">
-            <p class="slider-title">Рабочий период: </p>
-            <input type="range" class="slider" min="1" max="60" step="1" />
-          </div> -->
           <div class="slider-container">
             <p class="slider-title">Количество повторений: <span id="settings-value-rounds"></span></p>
             <input type="range" class="slider" min="2" max="10" step="1" id="settings-slider-rounds" />
           </div>
-
-          <!-- <div class="slider-container">
-            <p class="slider-title">Короткий перерыв</p>
-            <input type="range" class="slider" min="1" max="60" step="1" />
-          </div> -->
-          <!-- <div class="slider-container">
-            <p class="slider-title">Длинный перерыв:</p>
-            <input type="range" class="slider" min="1" max="60" step="1" />
-          </div> -->
-          <!-- <div class="slider-container">
-            <p class="slider-title">Количество повторений: </p>
-            <input type="range" class="slider" min="1" max="60" step="1" />
-          </div> -->
+          <div class="slider-container">
+            <p class="slider-title">Сколько работаем: <span id="settings-value-focus-period"></span></p>
+            <input type="range" class="slider" min="1" max="60" step="1" id="settings-slider-focus-period" />
+          </div>
+          <div class="slider-container">
+            <p class="slider-title">Короткий перерыв: <span id="settings-value-short-break-period"></span></p>
+            <input type="range" class="slider" min="1" max="30" step="1" id="settings-slider-short-break-period" />
+          </div>
+          <div class="slider-container">
+            <p class="slider-title">Длинный перерыв: <span id="settings-value-long-break-period"></span></p>
+            <input type="range" class="slider" min="1" max="30" step="1" id="settings-slider-long-break-period" />
+          </div>
         </div>
       </div>
 

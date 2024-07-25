@@ -79,7 +79,7 @@ class Store {
     this.reduceTimer();
   }
 
-  toggleSettings(newState: boolean) {
+  toggleSettings(newState?: boolean) {
     this._state.showSettings = newState === undefined ? !this.state.showSettings : newState;
   }
 
