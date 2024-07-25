@@ -68,4 +68,5 @@ function onSettingsUpdate() {
   store.toggleSettings(showSettings);
 
   render();
+  renderSettings();
 }
