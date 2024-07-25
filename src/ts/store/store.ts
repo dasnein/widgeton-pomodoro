@@ -79,6 +79,17 @@ class Store {
     this.reduceTimer();
   }
 
+  toggleSettings(newState: boolean) {
+    this._state.showSettings = newState === undefined ? !this.state.showSettings : newState;
+  }
+
+  updateSettings(newSettings: Partial<StoreSettings>) {
+    this._settings = {
+      ...this.settings,
+      ...newSettings,
+    }
+  }
+
   get settings() {
     return this._settings;
   }

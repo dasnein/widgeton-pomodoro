@@ -10,6 +10,7 @@ export type StoreState = {
   round: number;
   breakRunning: boolean;
   timeLeft: number;
+  showSettings: boolean;
 }
 
 export interface ICallbackList {

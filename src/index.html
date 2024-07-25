@@ -17,13 +17,40 @@
         <div class="controls">
           <button class="control" id="button-start" title="start">▶️</button>
           <button class="control" id="button-stop" title="stop">⏹</button>
-          <!-- <button class="control" id="button-settings" title="settings">⚙️</button> -->
+          <button class="control" id="button-settings-show" title="settings">⚙️</button>
         </div>
       </div>
 
-      <div class="timer">
+      <div class="timer" id="view-timer">
         <div class="timer-logo colorless" id="timer-logo-colorless"></div>
         <div class="timer-logo colored" id="timer-logo-colored"></div>
+      </div>
+
+      <div class="settings" id="view-settings">
+        <a href="#" onclick="return false;" id="button-settings-close" class="close">×</a>
+        <div class="sliders">
+          <!-- <div class="slider-container">
+            <p class="slider-title">Рабочий период: </p>
+            <input type="range" class="slider" min="1" max="60" step="1" />
+          </div> -->
+          <div class="slider-container">
+            <p class="slider-title">Количество повторений: <span id="settings-value-rounds"></span></p>
+            <input type="range" class="slider" min="2" max="10" step="1" id="settings-slider-rounds" />
+          </div>
+
+          <!-- <div class="slider-container">
+            <p class="slider-title">Короткий перерыв</p>
+            <input type="range" class="slider" min="1" max="60" step="1" />
+          </div> -->
+          <!-- <div class="slider-container">
+            <p class="slider-title">Длинный перерыв:</p>
+            <input type="range" class="slider" min="1" max="60" step="1" />
+          </div> -->
+          <!-- <div class="slider-container">
+            <p class="slider-title">Количество повторений: </p>
+            <input type="range" class="slider" min="1" max="60" step="1" />
+          </div> -->
+        </div>
       </div>
 
       <div class="footer">

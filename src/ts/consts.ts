@@ -5,10 +5,16 @@ export enum StorageKey {
   State = 'state',
 }
 
+enum ViewId {
+  Timer = 'view-timer',
+  Settings = 'view-settings',
+}
+
 enum ButtonId {
   Start = 'button-start',
   Stop = 'button-stop',
-  Settings = 'button-settings',
+  SettingsShow = 'button-settings-show',
+  SettingsClose = 'button-settings-close',
   Reset = 'button-reset',
 }
 
@@ -30,18 +36,33 @@ enum AudioId {
   Work = 'audio-work',
 }
 
+enum SettingsValueId {
+  FocusPeriod = 'settings-value-focus-period',
+  LongBreakPeriod = 'settings-value-long-break-period',
+  Rounds = 'settings-value-rounds',
+  ShortBreakPeriod = 'settings-value-short-break-period',
+}
+
+enum SettingsSliderId {
+  FocusPeriod = 'settings-slider-focus-period',
+  LongBreakPeriod = 'settings-slider-long-break-period',
+  Rounds = 'settings-slider-rounds',
+  ShortBreakPeriod = 'settings-slider-short-break-period',
+}
+
 export const EL_BUTTONS = {
+  RESET: document.getElementById(ButtonId.Reset),
+  SETTINGS_CLOSE: document.getElementById(ButtonId.SettingsClose),
+  SETTINGS_SHOW: document.getElementById(ButtonId.SettingsShow),
   START: document.getElementById(ButtonId.Start),
   STOP: document.getElementById(ButtonId.Stop),
-  SETTINGS: document.getElementById(ButtonId.Settings),
-  RESET: document.getElementById(ButtonId.Reset),
 }
 
 export const EL_TEXTS = {
-  TIME_OPERATION: document.getElementById(TextId.TimeOperation),
-  TIME_REMAINS: document.getElementById(TextId.TimeRemains),
   HEADER_ROUND_CURRENT: document.getElementById(TextId.HeaderRoundCurrent),
   HEADER_ROUNDS_TOTAL: document.getElementById(TextId.HeaderRoundsTotal),
+  TIME_OPERATION: document.getElementById(TextId.TimeOperation),
+  TIME_REMAINS: document.getElementById(TextId.TimeRemains),
 }
 
 export const EL_TIMER = {
@@ -53,6 +74,25 @@ export const EL_AUDIO = {
   LONG_BREAK: document.getElementById(AudioId.LongBreak),
   SHORT_BREAK: document.getElementById(AudioId.ShortBreak),
   WORK: document.getElementById(AudioId.Work),
+}
+
+export const EL_VIEWS = {
+  SETTINGS: document.getElementById(ViewId.Settings),
+  TIMER: document.getElementById(ViewId.Timer),
+};
+
+export const EL_SETTINGS_VALUES = {
+  FOCUS: document.getElementById(SettingsValueId.FocusPeriod),
+  LONG_BREAK: document.getElementById(SettingsValueId.ShortBreakPeriod),
+  ROUNDS: document.getElementById(SettingsValueId.Rounds),
+  SHORT_BREAK: document.getElementById(SettingsValueId.LongBreakPeriod),
+}
+
+export const EL_SETTINGS_SLIDERS = {
+  FOCUS: document.getElementById(SettingsSliderId.FocusPeriod),
+  LONG_BREAK: document.getElementById(SettingsSliderId.ShortBreakPeriod),
+  ROUNDS: document.getElementById(SettingsSliderId.Rounds),
+  SHORT_BREAK: document.getElementById(SettingsSliderId.LongBreakPeriod),
 }
 
 export const DEFAULT_STORE_SETTINGS: StoreSettings = {
@@ -67,6 +107,7 @@ export const DEFAULT_STORE_STATE: StoreState = {
   running: false,
   breakRunning: false,
   timeLeft: 25 * 60 * 1000,
+  showSettings: false,
 };
 
 export enum BusEvents {
@@ -74,6 +115,9 @@ export enum BusEvents {
   Stop = 'stop',
   NextRound = 'next-round',
   Reset = 'reset',
+  SettingsShow = 'settings-show',
+  SettingsClose = 'settings-close',
+  SettingsUpdated = 'settings-updated',
 }
 
 export enum ElementModifier {

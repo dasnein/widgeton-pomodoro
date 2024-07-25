@@ -1,7 +1,9 @@
 import { BusEvents, EL_AUDIO } from "../consts";
 import { eventBus } from "../eventBus";
 import { render } from "../renderer";
+import { renderSettings } from "../renderer/settings";
 import { store } from "../store";
+import storage from "../utils/storage";
 import { audioController } from "./audio";
 
 export function initControllers() {
@@ -9,13 +11,16 @@ export function initControllers() {
   eventBus.on(BusEvents.Stop, onStopButton);
   eventBus.on(BusEvents.NextRound, onNextRound);
   eventBus.on(BusEvents.Reset, onResetButton);
+  eventBus.on(BusEvents.SettingsShow, onShowSettings);
+  eventBus.on(BusEvents.SettingsClose, onCloseSettings);
+  eventBus.on(BusEvents.SettingsUpdated, onSettingsUpdate);
 }
 
 function onStartButton() {
-  if(store.state.round === 0) {
+  if (store.state.round === 0) {
     audioController.play();
   }
-  
+
   store.startTimer();
   render();
 }
@@ -42,4 +47,19 @@ function onNextRound() {
 function onResetButton() {
   store.resetTimer();
   render();
+}
+
+function onShowSettings() {
+  store.toggleSettings(true);
+  renderSettings();
+}
+
+function onCloseSettings() {
+  store.toggleSettings(false);
+  renderSettings();
+}
+
+function onSettingsUpdate() {
+  storage.saveSettings(store.settings);
+  renderSettings();
 }
