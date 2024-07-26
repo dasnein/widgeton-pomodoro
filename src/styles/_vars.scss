@@ -3,3 +3,12 @@ $card_max_size: 384px; // [180, 384]
 
 $unit: 4px;
 $unit_small: 2px;
+
+// ICOMOON
+$icomoon-font-family: "icomoon" !default;
+$icomoon-font-path: "../assets/fonts" !default;
+
+$icon-equalizer: unquote('"\\e992"');
+$icon-play3: unquote('"\\ea1c"');
+$icon-stop2: unquote('"\\ea1e"');
+
